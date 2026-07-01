@@ -81,24 +81,6 @@
       }
     }
 
-    @keyframes rainbowBorder {
-      0% {
-        border-color: #ff6b9d;
-      }
-      25% {
-        border-color: #ffa06b;
-      }
-      50% {
-        border-color: #ffdd6b;
-      }
-      75% {
-        border-color: #c44569;
-      }
-      100% {
-        border-color: #ff6b9d;
-      }
-    }
-
     * {
       box-sizing: border-box;
     }
@@ -173,14 +155,9 @@
       z-index: 1;
     }
 
-    .title-container {
-      margin-bottom: 20px;
-      position: relative;
-    }
-
     h1 {
       color: #d94f80;
-      margin: 0 0 10px 0;
+      margin-bottom: 10px;
       animation: fadeInDown 0.8s ease-out;
       display: flex;
       align-items: center;
@@ -197,19 +174,10 @@
       font-size: 36px;
     }
 
-    .subtitle {
-      font-size: 14px;
-      color: #a05a70;
-      font-style: italic;
-      margin: 10px 0 0 0;
-      animation: fadeInUp 0.8s ease-out 0.1s both;
-    }
-
-    .intro-text {
+    p {
       line-height: 1.8;
       font-size: 16px;
       color: #6a3d4d;
-      margin: 20px 0;
       animation: fadeInUp 0.8s ease-out 0.2s both;
       font-weight: 500;
     }
@@ -227,31 +195,15 @@
       overflow: hidden;
     }
 
-    .ucapan::before {
-      content: '"';
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      font-size: 60px;
-      color: #ff9fbd;
-      opacity: 0.3;
-      font-weight: bold;
-    }
-
     .ucapan p {
       animation: none;
-      margin: 15px 0;
+      margin: 12px 0;
       line-height: 1.7;
       color: #5a3d4a;
       font-size: 15px;
       position: relative;
       z-index: 1;
-    }
-
-    .ucapan p:first-of-type {
-      font-weight: 600;
-      color: #d94f80;
-      font-size: 16px;
+      font-weight: 400;
     }
 
     button {
@@ -298,21 +250,20 @@
     }
 
     #pesan {
-      margin-top: 20px;
-      font-weight: 600;
-      color: #d94f80;
-      min-height: 25px;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #c43f70;
+      min-height: 20px;
       animation: fadeInDown 0.6s ease-out;
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 15px;
     }
 
     .footer {
-      margin-top: 25px;
+      margin-top: 20px;
       font-size: 13px;
       color: #8a5a65;
       animation: fadeInUp 0.8s ease-out 0.8s both;
-      font-weight: 500;
+      font-weight: 400;
     }
 
     .sound-toggle {
@@ -382,7 +333,7 @@
     .floating-hearts {
       position: fixed;
       pointer-events: none;
-      font-size: 35px;
+      font-size: 30px;
       animation: float 3s ease-in-out infinite;
       filter: drop-shadow(0 2px 8px rgba(255, 120, 160, 0.3));
     }
@@ -430,7 +381,7 @@
         font-size: 28px;
       }
 
-      .intro-text {
+      p {
         font-size: 14px;
       }
 
@@ -455,18 +406,17 @@
     <div class="decorative-element deco-bottom">💫</div>
 
     <div class="card-content">
-      <div class="title-container">
-        <h1><span class="heart-icon">🤍</span>Happy Mensive Citra<span class="heart-icon">🤍</span></h1>
-        <p class="subtitle">Satu Bulan Kebersamaan yang Indah</p>
-      </div>
+      <h1><span class="heart-icon">🤍</span>Happy Mensive Citra 🤍<span class="heart-icon"></span></h1>
 
-      <p class="intro-text">
+      <p>
         Dari Rangga, orang yang suka gangguin kamu,
-        tapi sayangnya beneran banyak banget. 💕
+        tapi sayangnya beneran banyak banget.
       </p>
 
       <div class="ucapan">
-        <p>happy mensive 1 bulan yaa sayanggg 🤍</p>
+        <p>
+          happy mensive 1 bulan yaa sayanggg 🤍
+        </p>
 
         <p>
           ga kerasa yaa udah sebulan aja kamu jadi orang yang paling aku tunggu tiap hari.
@@ -493,12 +443,12 @@
         </p>
       </div>
 
-      <button onclick="munculPesan()">🎁 Klik ini Citra 🎁</button>
+      <button onclick="munculPesan()">Klik ini Citra</button>
 
       <p id="pesan"></p>
 
       <p class="footer">
-        dibuat khusus buat Citra, dari Rangga dengan sepenuh hati. 💝
+        dibuat khusus buat Citra, dari Rangga.
       </p>
     </div>
   </div>
@@ -584,14 +534,14 @@
     function munculPesan() {
       playBeep(800, 100);
       const pesanElement = document.getElementById('pesan');
-      pesanElement.innerHTML = "Citra, jangan lupa yaa, kamu itu spesial banget buat aku 🤍 I Love You!";
+      pesanElement.innerHTML = "Citra, jangan lupa yaa, kamu itu spesial banget buat aku 🤍";
 
       // Create floating hearts on button click
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 5; i++) {
         setTimeout(() => {
           createFloatingHeart();
-          playBeep(600 + (i * 40), 80);
-        }, i * 80);
+          playBeep(600 + (i * 50), 80);
+        }, i * 100);
       }
     }
 
