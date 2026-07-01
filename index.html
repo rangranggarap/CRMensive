@@ -63,192 +63,450 @@
       }
     }
 
+    @keyframes glow {
+      0%, 100% {
+        box-shadow: 0 15px 40px rgba(255, 120, 160, 0.3);
+      }
+      50% {
+        box-shadow: 0 20px 50px rgba(217, 79, 128, 0.5);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes rainbowBorder {
+      0% {
+        border-color: #ff6b9d;
+      }
+      25% {
+        border-color: #ffa06b;
+      }
+      50% {
+        border-color: #ffdd6b;
+      }
+      75% {
+        border-color: #c44569;
+      }
+      100% {
+        border-color: #ff6b9d;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ffe4ec, #fff7fa);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe4ec 0%, #fff7fa 50%, #ffe4f0 100%);
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 20px;
       color: #5a2d3a;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 50%, rgba(255, 192, 203, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(255, 182, 193, 0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
     }
 
     .card {
-      max-width: 430px;
+      max-width: 500px;
       background: white;
-      border-radius: 25px;
-      padding: 25px;
+      border-radius: 30px;
+      padding: 40px;
       text-align: center;
+      border: 3px solid #ffd1df;
+      animation: fadeInUp 0.8s ease-out, glow 3s ease-in-out infinite;
       box-shadow: 0 15px 40px rgba(255, 120, 160, 0.3);
-      border: 2px solid #ffd1df;
-      animation: fadeInUp 0.8s ease-out;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255, 182, 193, 0.3) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .card::after {
+      content: '';
+      position: absolute;
+      bottom: -50%;
+      left: -50%;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(255, 192, 203, 0.2) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse 5s ease-in-out infinite;
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .title-container {
+      margin-bottom: 20px;
+      position: relative;
     }
 
     h1 {
       color: #d94f80;
-      margin-bottom: 10px;
+      margin: 0 0 10px 0;
       animation: fadeInDown 0.8s ease-out;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 15px;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
     .heart-icon {
       display: inline-block;
       animation: heartBeat 1.5s ease-in-out infinite;
+      font-size: 36px;
     }
 
-    p {
-      line-height: 1.7;
-      font-size: 15px;
+    .subtitle {
+      font-size: 14px;
+      color: #a05a70;
+      font-style: italic;
+      margin: 10px 0 0 0;
+      animation: fadeInUp 0.8s ease-out 0.1s both;
+    }
+
+    .intro-text {
+      line-height: 1.8;
+      font-size: 16px;
+      color: #6a3d4d;
+      margin: 20px 0;
       animation: fadeInUp 0.8s ease-out 0.2s both;
+      font-weight: 500;
     }
 
     .ucapan {
-      background: #fff3f7;
-      border-radius: 18px;
-      padding: 18px;
-      margin-top: 18px;
-      border: 1px dashed #ff9fbd;
+      background: linear-gradient(135deg, #fff3f7 0%, #ffe4ec 100%);
+      border-radius: 20px;
+      padding: 25px;
+      margin-top: 25px;
+      border: 2px dashed #ff9fbd;
       text-align: left;
       animation: slideInLeft 0.8s ease-out 0.4s both;
+      box-shadow: inset 0 2px 10px rgba(255, 192, 203, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ucapan::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 60px;
+      color: #ff9fbd;
+      opacity: 0.3;
+      font-weight: bold;
     }
 
     .ucapan p {
       animation: none;
-      margin: 12px 0;
+      margin: 15px 0;
+      line-height: 1.7;
+      color: #5a3d4a;
+      font-size: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ucapan p:first-of-type {
+      font-weight: 600;
+      color: #d94f80;
+      font-size: 16px;
     }
 
     button {
-      margin-top: 18px;
-      padding: 12px 18px;
+      margin-top: 25px;
+      padding: 15px 35px;
       border: none;
-      border-radius: 25px;
-      background: #d94f80;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #d94f80 0%, #c43f70 100%);
       color: white;
-      font-size: 15px;
+      font-size: 16px;
+      font-weight: 600;
       cursor: pointer;
       animation: fadeInUp 0.8s ease-out 0.6s both;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 20px rgba(217, 79, 128, 0.3);
+      letter-spacing: 0.5px;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: left 0.5s ease;
     }
 
     button:hover {
-      background: #c43f70;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(217, 79, 128, 0.4);
+      background: linear-gradient(135deg, #c43f70 0%, #b02d60 100%);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(217, 79, 128, 0.5);
+    }
+
+    button:hover::before {
+      left: 100%;
     }
 
     button:active {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     #pesan {
-      margin-top: 15px;
-      font-weight: bold;
-      color: #c43f70;
-      min-height: 20px;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #d94f80;
+      min-height: 25px;
       animation: fadeInDown 0.6s ease-out;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
     .footer {
-      margin-top: 20px;
+      margin-top: 25px;
       font-size: 13px;
       color: #8a5a65;
       animation: fadeInUp 0.8s ease-out 0.8s both;
+      font-weight: 500;
     }
 
     .sound-toggle {
       position: fixed;
       top: 20px;
       right: 20px;
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
       border-radius: 50%;
-      background: #d94f80;
+      background: linear-gradient(135deg, #d94f80 0%, #c43f70 100%);
       color: white;
       border: none;
       cursor: pointer;
-      font-size: 24px;
+      font-size: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 5px 15px rgba(217, 79, 128, 0.4);
+      box-shadow: 0 8px 25px rgba(217, 79, 128, 0.4);
       transition: all 0.3s ease;
       z-index: 1000;
+      font-weight: bold;
     }
 
     .sound-toggle:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(217, 79, 128, 0.6);
+      transform: scale(1.15);
+      box-shadow: 0 12px 35px rgba(217, 79, 128, 0.6);
     }
 
     .sound-toggle.off {
-      background: #ccc;
+      background: linear-gradient(135deg, #ccc 0%, #aaa 100%);
+    }
+
+    .music-toggle {
+      position: fixed;
+      top: 85px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+      font-weight: bold;
+    }
+
+    .music-toggle:hover {
+      transform: scale(1.15);
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+    }
+
+    .music-toggle.playing {
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    .music-toggle.off {
+      background: linear-gradient(135deg, #ccc 0%, #aaa 100%);
     }
 
     .floating-hearts {
       position: fixed;
       pointer-events: none;
-      font-size: 30px;
+      font-size: 35px;
       animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 2px 8px rgba(255, 120, 160, 0.3));
+    }
+
+    .decorative-element {
+      position: absolute;
+      opacity: 0.1;
+      font-size: 100px;
+      pointer-events: none;
+    }
+
+    .deco-top {
+      top: -40px;
+      right: -40px;
+      animation: rotate 20s linear infinite;
+    }
+
+    .deco-bottom {
+      bottom: -40px;
+      left: -40px;
+      animation: rotate 25s linear infinite reverse;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 25px;
+        border-radius: 25px;
+      }
+
+      h1 {
+        font-size: 26px;
+        gap: 10px;
+      }
+
+      .heart-icon {
+        font-size: 28px;
+      }
+
+      .intro-text {
+        font-size: 14px;
+      }
+
+      .ucapan {
+        padding: 18px;
+        margin-top: 18px;
+      }
+
+      .ucapan p {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <button class="sound-toggle" id="soundToggle" title="Toggle Sound">🔊</button>
+  <button class="sound-toggle" id="soundToggle" title="Toggle Sound Effects">🔊</button>
+  <button class="music-toggle" id="musicToggle" title="Toggle Background Music">♪</button>
 
   <div class="card">
-    <h1><span class="heart-icon">🤍</span>Happy Mensive Citra<span class="heart-icon">🤍</span></h1>
+    <div class="decorative-element deco-top">✨</div>
+    <div class="decorative-element deco-bottom">💫</div>
 
-    <p>
-      Dari Rangga, orang yang suka gangguin kamu,
-      tapi sayangnya beneran banyak banget.
-    </p>
+    <div class="card-content">
+      <div class="title-container">
+        <h1><span class="heart-icon">🤍</span>Happy Mensive Citra<span class="heart-icon">🤍</span></h1>
+        <p class="subtitle">Satu Bulan Kebersamaan yang Indah</p>
+      </div>
 
-    <div class="ucapan">
-      <p>
-        happy mensive 1 bulan yaa sayanggg 🤍
+      <p class="intro-text">
+        Dari Rangga, orang yang suka gangguin kamu,
+        tapi sayangnya beneran banyak banget. 💕
       </p>
 
-      <p>
-        ga kerasa yaa udah sebulan aja kamu jadi orang yang paling aku tunggu tiap hari.
-        dari yang awalnya cuma kenal biasa, sekarang malah jadi orang yang paling aku cari-cari,
-        paling aku kangenin, dan paling bisa bikin aku senyum cuma dari chat doang.
-      </p>
+      <div class="ucapan">
+        <p>happy mensive 1 bulan yaa sayanggg 🤍</p>
 
-      <p>
-        makasih yaa udah hadir di hidup aku. makasih udah mau sama aku,
-        udah sabar sama aku, dan udah bikin hari-hari aku jadi lebih rame,
-        lebih lucu, dan lebih ada kamunya.
-      </p>
+        <p>
+          ga kerasa yaa udah sebulan aja kamu jadi orang yang paling aku tunggu tiap hari.
+          dari yang awalnya cuma kenal biasa, sekarang malah jadi orang yang paling aku cari-cari,
+          paling aku kangenin, dan paling bisa bikin aku senyum cuma dari chat doang.
+        </p>
 
-      <p>
-        aku tau kita baru jalan 1 bulan, tapi aku bener-bener seneng punya kamu.
-        semoga kita bisa terus bareng, saling ngerti, saling jaga,
-        dan makin sayang tiap harinya.
-      </p>
+        <p>
+          makasih yaa udah hadir di hidup aku. makasih udah mau sama aku,
+          udah sabar sama aku, dan udah bikin hari-hari aku jadi lebih rame,
+          lebih lucu, dan lebih ada kamunya.
+        </p>
 
-      <p>
-        pokoknya jangan bosen-bosen sama aku yaa,
-        soalnya aku masih mau gangguin kamu lamaaa banget.
-        aku sayang kamu, banyak-banyak, lebih dari yang kamu kira.
+        <p>
+          aku tau kita baru jalan 1 bulan, tapi aku bener-bener seneng punya kamu.
+          semoga kita bisa terus bareng, saling ngerti, saling jaga,
+          dan makin sayang tiap harinya.
+        </p>
+
+        <p>
+          pokoknya jangan bosen-bosen sama aku yaa,
+          soalnya aku masih mau gangguin kamu lamaaa banget.
+          aku sayang kamu, banyak-banyak, lebih dari yang kamu kira.
+        </p>
+      </div>
+
+      <button onclick="munculPesan()">🎁 Klik ini Citra 🎁</button>
+
+      <p id="pesan"></p>
+
+      <p class="footer">
+        dibuat khusus buat Citra, dari Rangga dengan sepenuh hati. 💝
       </p>
     </div>
-
-    <button onclick="munculPesan()">Klik ini Citra</button>
-
-    <p id="pesan"></p>
-
-    <p class="footer">
-      dibuat khusus buat Citra, dari Rangga.
-    </p>
   </div>
+
+  <!-- Hidden audio element for background music -->
+  <audio id="bgMusic" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
     // Sound Effects - Simple beep sounds
@@ -277,7 +535,10 @@
     }
 
     let soundEnabled = true;
+    let musicEnabled = false;
     const soundToggle = document.getElementById('soundToggle');
+    const musicToggle = document.getElementById('musicToggle');
+    const bgMusic = document.getElementById('bgMusic');
 
     // Initialize sound toggle
     soundToggle.addEventListener('click', () => {
@@ -286,6 +547,24 @@
       soundToggle.classList.toggle('off');
       if (soundEnabled) {
         playBeep(600, 80);
+      }
+    });
+
+    // Initialize music toggle
+    musicToggle.addEventListener('click', () => {
+      musicEnabled = !musicEnabled;
+      musicToggle.classList.toggle('off');
+      
+      if (musicEnabled) {
+        bgMusic.volume = 0.3;
+        bgMusic.play().catch(err => console.log('Music play failed:', err));
+        musicToggle.classList.add('playing');
+        playBeep(700, 100);
+        setTimeout(() => playBeep(800, 100), 100);
+      } else {
+        bgMusic.pause();
+        bgMusic.currentTime = 0;
+        musicToggle.classList.remove('playing');
       }
     });
 
@@ -305,14 +584,14 @@
     function munculPesan() {
       playBeep(800, 100);
       const pesanElement = document.getElementById('pesan');
-      pesanElement.innerHTML = "Citra, jangan lupa yaa, kamu itu spesial banget buat aku 🤍";
+      pesanElement.innerHTML = "Citra, jangan lupa yaa, kamu itu spesial banget buat aku 🤍 I Love You!";
 
       // Create floating hearts on button click
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 8; i++) {
         setTimeout(() => {
           createFloatingHeart();
-          playBeep(600 + (i * 50), 80);
-        }, i * 100);
+          playBeep(600 + (i * 40), 80);
+        }, i * 80);
       }
     }
 
