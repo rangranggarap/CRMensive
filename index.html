@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untuk Citra</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffe4ec, #fff7fa);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #5a2d3a;
+    }
+
+    .card {
+      max-width: 430px;
+      background: white;
+      border-radius: 25px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(255, 120, 160, 0.3);
+      border: 2px solid #ffd1df;
+    }
+
+    h1 {
+      color: #d94f80;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .ucapan {
+      background: #fff3f7;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 18px;
+      border: 1px dashed #ff9fbd;
+      text-align: left;
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 25px;
+      background: #d94f80;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #c43f70;
+    }
+
+    #pesan {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #c43f70;
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #8a5a65;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Happy Mensive Citra 🤍</h1>
+
+    <p>
+      Dari Rangga, orang yang suka gangguin kamu,
+      tapi sayangnya beneran banyak banget.
+    </p>
+
+    <div class="ucapan">
+      <p>
+        happy mensive 1 bulan yaa sayanggg 🤍
+      </p>
+
+      <p>
+        ga kerasa yaa udah sebulan aja kamu jadi orang yang paling aku tunggu tiap hari.
+        dari yang awalnya cuma kenal biasa, sekarang malah jadi orang yang paling aku cari-cari,
+        paling aku kangenin, dan paling bisa bikin aku senyum cuma dari chat doang.
+      </p>
+
+      <p>
+        makasih yaa udah hadir di hidup aku. makasih udah mau sama aku,
+        udah sabar sama aku, dan udah bikin hari-hari aku jadi lebih rame,
+        lebih lucu, dan lebih ada kamunya.
+      </p>
+
+      <p>
+        aku tau kita baru jalan 1 bulan, tapi aku bener-bener seneng punya kamu.
+        semoga kita bisa terus bareng, saling ngerti, saling jaga,
+        dan makin sayang tiap harinya.
+      </p>
+
+      <p>
+        pokoknya jangan bosen-bosen sama aku yaa,
+        soalnya aku masih mau gangguin kamu lamaaa banget.
+        aku sayang kamu, banyak-banyak, lebih dari yang kamu kira.
+      </p>
+    </div>
+
+    <button onclick="munculPesan()">Klik ini Citra</button>
+
+    <p id="pesan"></p>
+
+    <p class="footer">
+      dibuat khusus buat Citra, dari Rangga.
+    </p>
+  </div>
+
+  <script>
+    function munculPesan() {
+      document.getElementById("pesan").innerHTML =
+      "Citra, jangan lupa yaa, kamu itu spesial banget buat aku 🤍";
+    }
+  </script>
+</body>
+</html>
