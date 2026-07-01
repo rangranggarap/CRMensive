@@ -406,7 +406,7 @@
     <div class="decorative-element deco-bottom">💫</div>
 
     <div class="card-content">
-      <h1><span class="heart-icon">🤍</span>Happy Mensive Ciyangg❤️<span class="heart-icon"></span></h1>
+      <h1><span class="heart-icon">💗</span>Happy Mensive Ciyangg❤️<span class="heart-icon"></span></h1>
 
       <p>
         Terima kasih sudah bersama sejak
@@ -415,7 +415,7 @@
 
       <div class="ucapan">
         <p>
-          Happy mensive 1 bulan yaa sayanggg 💗
+          Happy mensive 1 bulan yaa sayangg💗
         </p>
 
         <p>
@@ -519,22 +519,17 @@
     });
 
     // Create floating hearts
-function createFloatingHeart() {
-    const heart = document.createElement("div");
-    heart.className = "floating-hearts";
-    heart.innerHTML = "💖";
+function createFloatingHeart() { 
+const heart = document.createElement('div');
+ heart.className = 'floating-hearts';
+ heart.textContent = '💖';
+ heart.style.left = Math.random() * window.innerWidth + 'px';
+ heart.style.top = window.innerHeight + 'px';
+ heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+ document.body.appendChild(heart);
 
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "105vh"; // mulai dari bawah layar
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
-}
+ setTimeout(() => heart.remove(), 5000); 
+} 
 
     function munculPesan() {
       playBeep(800, 100);
