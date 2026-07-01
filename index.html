@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untuk Citra</title>
+  <title>Happy Mensive Citrangga</title>
 
   <style>
     @keyframes fadeInDown {
@@ -406,49 +406,49 @@
     <div class="decorative-element deco-bottom">💫</div>
 
     <div class="card-content">
-      <h1><span class="heart-icon">🤍</span>Happy Mensive Citra 🤍<span class="heart-icon"></span></h1>
+      <h1><span class="heart-icon">🤍</span>Happy Mensive Ciyangg❤️<span class="heart-icon"></span></h1>
 
       <p>
-        Dari Rangga, orang yang suka gangguin kamu,
-        tapi sayangnya beneran banyak banget.
+        Terima kasih sudah bersama sejak
+        2 Juni 2026.
       </p>
 
       <div class="ucapan">
         <p>
-          happy mensive 1 bulan yaa sayanggg 🤍
+          Happy mensive 1 bulan yaa sayanggg 💗
         </p>
 
         <p>
-          ga kerasa yaa udah sebulan aja kamu jadi orang yang paling aku tunggu tiap hari.
-          dari yang awalnya cuma kenal biasa, sekarang malah jadi orang yang paling aku cari-cari,
+          Ga kerasa yaa udah sebulan aja kamu jadi orang yang paling aku tunggu tiap hari.
+          Dari yang awalnya cuma kenal biasa, sekarang malah jadi orang yang paling aku cari cari,
           paling aku kangenin, dan paling bisa bikin aku senyum cuma dari chat doang.
         </p>
 
         <p>
-          makasih yaa udah hadir di hidup aku. makasih udah mau sama aku,
-          udah sabar sama aku, dan udah bikin hari-hari aku jadi lebih rame,
+          Makasih yaa udah hadir di hidup aku. makasih udah mau sama aku,
+          udah sabar sama aku, dan udah bikin hari hari aku jadi lebih rame,
           lebih lucu, dan lebih ada kamunya.
         </p>
 
         <p>
-          aku tau kita baru jalan 1 bulan, tapi aku bener-bener seneng punya kamu.
-          semoga kita bisa terus bareng, saling ngerti, saling jaga,
+          Aku tau kita baru jalan 1 bulan, tapi aku bener-bener seneng punya kamu.
+          Semoga kita bisa terus bareng, saling ngerti, saling jaga,
           dan makin sayang tiap harinya.
         </p>
 
         <p>
-          pokoknya jangan bosen-bosen sama aku yaa,
-          soalnya aku masih mau gangguin kamu lamaaa banget.
-          aku sayang kamu, banyak-banyak, lebih dari yang kamu kira.
+          Pokoknya jangan bosen bosen sama aku yaa,
+          Soalnya aku masih mau gangguin kamu lamaaa banget.
+          Aku sayang kamu, banyak-banyak, lebih dari yang kamu kira.
         </p>
       </div>
 
-      <button onclick="munculPesan()">Klik ini Citra</button>
+      <button onclick="munculPesan()">Klik ini dongg</button>
 
       <p id="pesan"></p>
 
       <p class="footer">
-        dibuat khusus buat Citra, dari Rangga.
+        Dibuat khusus buat Citra, dari Rangga.
       </p>
     </div>
   </div>
@@ -519,22 +519,27 @@
     });
 
     // Create floating hearts
-    function createFloatingHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'floating-hearts';
-      heart.textContent = '💖';
-      heart.style.left = Math.random() * window.innerWidth + 'px';
-      heart.style.top = window.innerHeight + 'px';
-      heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
-      document.body.appendChild(heart);
+function createFloatingHeart() {
+    const heart = document.createElement("div");
+    heart.className = "floating-hearts";
+    heart.innerHTML = "💖";
 
-      setTimeout(() => heart.remove(), 5000);
-    }
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "105vh"; // mulai dari bawah layar
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
 
     function munculPesan() {
       playBeep(800, 100);
       const pesanElement = document.getElementById('pesan');
-      pesanElement.innerHTML = "Citra, jangan lupa yaa, kamu itu spesial banget buat aku 🤍";
+      pesanElement.innerHTML = "Citra, jangan lupa yaa, kamu itu spesial banget buat aku 🤍🤍🤍🤍🤍🤍🤍";
 
       // Create floating hearts on button click
       for (let i = 0; i < 5; i++) {
